@@ -1,5 +1,11 @@
 # 影刀 CLI 与 CodeFlow 参考
 
+## 能力边界
+
+公开的影刀 `shadowbot.shell-cli` 主要用于运行应用、查看任务/日志、管理触发任务和账号；官方 CLI 技能文档明确说明当前版本暂不支持修改应用内部代码，流程开发通常应在影刀客户端完成。本机可能额外启用 Studio/MCP CLI，因此必须先运行当前二进制的 `--help` 并以实际输出为准：只有明确存在且成功返回的编辑命令才能写入。
+
+官方 CLI 规则：只执行真实存在的命令；不猜 flag、app ID 或 task ID；命令不存在时保留原始错误并停止；不确定参数先查 `-h`；路径含空格时加英文引号；运行前确认认证状态。运行应用前先发现 app ID，运行结果取 task ID，再查询状态/日志/停止。优先请求结构化 JSON 输出；向用户只汇报已执行命令和关键字段，不输出 token。
+
 ## 本机入口
 
 默认安装入口：`D:\Program Files\ShadowBot\shadowbot.shell-cli.exe`。
@@ -10,7 +16,7 @@
 $env:SWITCH_STUDIO_MCP_CLI_SUPPORT='1'
 ```
 
-常用操作：
+启用 Studio/MCP 支持后，某些本机版本可能提供以下操作：
 
 ```powershell
 shadowbot.shell-cli studio open --app-id <应用ID>
@@ -23,7 +29,7 @@ shadowbot.shell-cli studio app save
 shadowbot.shell-cli studio diagnostics snapshot
 ```
 
-以当前 CLI 版本的 `--help` 输出为准；不要凭旧记忆编造参数。需要复制流程时，先准备临时源文件，再执行 copy，避免把业务源文件覆盖到新流程。
+以上命令不是公开 CLI 的通用保证，以当前版本的 `--help` 输出为准。需要复制流程时，先准备临时源文件，再执行 copy，避免把业务源文件覆盖到新流程。若命令返回 `unknown command`、`TOOL_DISABLED` 或参数表单不可读，停止猜测并转到影刀客户端。
 
 ## CodeFlow 约束
 
@@ -49,9 +55,14 @@ shadowbot.shell-cli studio diagnostics snapshot
 
 ## 最小验证清单
 
-1. `flow list` 与 `codeflow read` 确认修改的是目标流程。
-2. `codeflow write` 后 `app save`。
-3. `diagnostics snapshot` 的 `static_errors` 为空。
-4. 单 Profile、单店铺、单日期跑通。
-5. 检查下载文件存在、大小合理、能读取、表头正确。
-6. 再扩展到多店铺循环，并输出成功/失败/跳过统计。
+1. `auth current`（或当前 CLI 等价命令）确认会话；不要输出 token。
+2. 应用发现命令确认目标 app ID，再读取 flow/CodeFlow。
+3. 能力确认后才尝试写入；写入后 `app save`，若支持则执行静态诊断。
+4. `static_errors` 为空只代表静态检查通过，不代表运行逻辑正确。
+5. 单 Profile、单店铺、单日期跑通。
+6. 检查页面上下文和下载文件内容，再扩展到多店铺循环。
+
+## 官方资料
+
+- [影刀 CLI 技能文档](https://www.yingdao.com/yddoc/rpa/zh-CN/958294294025375744?source=cli)
+- [影刀官方 shadowbot-cli skill](https://github.com/ying-dao/skills/tree/main/shadowbot-cli)
