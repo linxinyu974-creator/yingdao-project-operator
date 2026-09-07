@@ -1,0 +1,16 @@
+*.log
+*.tmp
+*.bak
+*.db
+*.db3
+__pycache__/
+.playwright-cli/
+.env
+.env.*
+config.local.*
+*cookie*
+*token*
+*secret*
+账号/
+查询/
+结果/
