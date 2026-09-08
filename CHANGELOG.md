@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0 - 2026-09-08
+
+- Add the standalone `structured-thinking-toolkit` skill with targeted methods for clarification, research, verification, decision experiments and explicit self-reflection.
+- Keep the structured-thinking references isolated from the Yingdao operator skill so each can be installed and invoked independently.
+
 ## 0.2.0 - 2026-09-07
 
 - Add task routing for CodeFlow, visual flows, selectors, Profiles, databases, files and notifications.

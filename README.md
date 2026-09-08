@@ -1,10 +1,12 @@
 # yingdao-project-operator
 
-给 AI 智能体使用的影刀/ShadowBot 项目修改说明书。重点是帮助智能体找到真正执行目标行为的流程节点，区分 CodeFlow、可视化流程、网页元素、Profile、数据库和文件层，并在修改后提供可核对的证据。
+给 AI 智能体使用的技能集合。目前包含影刀/ShadowBot 项目修改说明书，以及独立的结构化思考工具箱。影刀技能重点是帮助智能体找到真正执行目标行为的流程节点，区分 CodeFlow、可视化流程、网页元素、Profile、数据库和文件层，并在修改后提供可核对的证据。
 
 ## 使用方式
 
-将本目录作为 skill 的 supporting files 提供给 AI。触发后先读取 `SKILL.md`，再按任务类型按需读取 `references/`，不要一次性加载全部参考资料。
+使用影刀技能时，将仓库根目录作为 skill 的 supporting files 提供给 AI。触发后先读取 `SKILL.md`，再按任务类型按需读取 `references/`，不要一次性加载全部参考资料。
+
+使用结构化思考工具箱时，将 `structured-thinking-toolkit/` 作为独立 skill 提供给 AI，并从其 `SKILL.md` 开始按需读取参考资料。
 
 ## 设计原则
 
@@ -19,3 +21,4 @@
 - `SKILL.md`：主路由和执行闭环。
 - `references/`：CLI、浏览器、元素调试、导出、数据完整性、店铺切换和报告模板。
 - `CHANGELOG.md`：版本变更记录。
+- `structured-thinking-toolkit/`：独立的澄清、学习研究、解题验证、决策实验与反思技能。

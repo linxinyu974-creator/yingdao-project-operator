@@ -1,0 +1,6 @@
+interface:
+  display_name: "结构化思考工具箱"
+  short_description: "主动选择合适的思考方法，帮助澄清、研究、解题、决策与反思"
+  default_prompt: "Use $structured-thinking-toolkit to clarify this problem and choose the smallest useful reasoning method."
+policy:
+  allow_implicit_invocation: true
