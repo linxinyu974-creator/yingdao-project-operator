@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.4.0 - 2026-09-09
+
+- Add startup-flow preflight and distinguish whole-app runs from Studio flow and single CodeFlow runs.
+- Detect successful no-op runs caused by empty entry flows, editing locks, or missing expected side effects.
+
 ## 0.3.0 - 2026-09-08
 
 - Add the standalone `structured-thinking-toolkit` skill with targeted methods for clarification, research, verification, decision experiments and explicit self-reflection.
