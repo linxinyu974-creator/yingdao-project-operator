@@ -1,4 +1,18 @@
-# 调研来源与使用边界
+# 来源、版本与使用边界
+
+本技能不把任何历史命令、搜索摘要或某台电脑的路径当成永久平台规则。优先级：当前可执行文件的具体 help/返回值 > 当前应用代码和运行日志 > 影刀官方资料 > 历史经验。
+
+2026-09-10 本机已验证：`C:\Program Files\ShadowBot\shadowbot-6.3.13\shadowbot.shell-cli.exe`，`--version` 返回 `dev`；设置 `SWITCH_STUDIO_MCP_CLI_SUPPORT=1` 后可发现 Studio 的 open、flow、codeflow、diagnostics、browser-use 命令。该证据只适用于本机这次命令契约，不证明其他版本、账号或机器拥有同样权限。
+
+官方参考：
+
+- [影刀官方 shadowbot-cli skill](https://github.com/ying-dao/skills/tree/main/shadowbot-cli)：CLI 运行、任务观察、Studio/浏览器操作路由。
+- [影刀 CLI 文档](https://www.yingdao.com/yddoc/rpa/zh-CN/958294294025375744?source=cli)：认证、运行和日志能力边界。
+- [影刀帮助中心](https://www.yingdao.com/qa/)及元素/浏览器/调试页面：平台术语和客户端行为。
+
+官方资料用于确认平台能力，不用于猜测具体业务站点 URL、DOM、Profile 或 API；当前页面和应用证据优先。当前 CLI 与官方 skill 不一致时保留具体错误，重新查看 help，不拼接猜测参数。
+
+技能设计采用渐进披露：主文件只保留路由、边界和判定；操作参数在 references；确定性只读检查在 scripts。技能自身验收分别测试触发路由、内容正确性、脚本和安装副本，不把 Markdown 存在误当运行验证。
 
 ## 影刀官方资料
 
