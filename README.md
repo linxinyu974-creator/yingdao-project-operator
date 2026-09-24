@@ -25,3 +25,7 @@
 - `CHANGELOG.md`：版本变更记录。
 - `references/continuous-improvement.md`：每次调用后的学习候选、证据门槛与采纳规则。
 - `structured-thinking-toolkit/`：独立的澄清、学习研究、解题验证、决策实验与反思技能。
+
+## Consolidated skill
+
+`yingdao-rpa-operator/` 是面向新任务的统一入口，整合官方 CLI 操作纪律、社区技能的机器人管理/API/可视化块经验，以及本仓库的调用链、运行证据和交付边界。旧的 `yingdao-project-operator` 入口保留用于兼容已有调用；新任务优先使用 `yingdao-rpa-operator/SKILL.md`。
